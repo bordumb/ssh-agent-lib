@@ -27,11 +27,16 @@ tokio = { version = "1", optional = true, features = ["rt", "net", "time"] }
 tokio-util = { version = "0.7", optional = true, features = ["codec"] }
 service-binding = { version = "^3", optional = true }
 ssh-encoding = { version = "0.2" }
-ssh-key = { version = "0.6.7", features = ["crypto", "alloc", "pkcs8"] }
 thiserror = "1"
 subtle = { version = "2", default-features = false }
 signature = { version = "2", features = ["alloc"] }
 secrecy = "0.8"
+
+[dependencies.ssh-key]
+version = "0.6" # Or 0.6.3, whatever was there originally
+default-features = false
+features = ["crypto", "alloc", "pkcs8"] # <<< Ensure "pkcs8" is definitely here
+optional = true
 
 [features]
 default = ["agent"]
